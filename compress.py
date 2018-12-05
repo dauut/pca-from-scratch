@@ -12,7 +12,7 @@ OUTPUT_PATH = "Output"
 
 def compress_images(DATA, k):
 
-    # create output directory
+    # if it is not exist create output directory
     if not os.path.exists(OUTPUT_PATH):
         os.makedirs(OUTPUT_PATH)
 
