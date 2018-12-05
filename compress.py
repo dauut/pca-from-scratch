@@ -40,6 +40,7 @@ def compress_images(DATA, k):
 
     # write all images
     for ftr_ind in range(faces.shape[1]):
+        # we need to reshape the feature as image.
         img = np.reshape(X_compressed[:,ftr_ind], (60, 48))
         plt.imsave(OUTPUT_PATH + "/" + filenames[ftr_ind] + "_img.jpg", img, cmap="gray")
 
