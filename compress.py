@@ -3,18 +3,12 @@ import matplotlib.pyplot as plt
 import os
 import pca
 
-from sklearn.decomposition import PCA
-
-TRAINING_DATA = "Data/Train"
-TEST_DATA = "Data/Test"
-OUTPUT_PATH = "Output"
-
 
 def compress_images(DATA, k):
 
     # if it is not exist create output directory
-    if not os.path.exists(OUTPUT_PATH):
-        os.makedirs(OUTPUT_PATH)
+    if not os.path.exists("Output"):
+        os.makedirs("Output")
 
     faces = []
     filenames = []
@@ -42,7 +36,7 @@ def compress_images(DATA, k):
     for ftr_ind in range(faces.shape[1]):
         # we need to reshape the feature as image.
         img = np.reshape(X_compressed[:,ftr_ind], (60, 48))
-        plt.imsave(OUTPUT_PATH + "/" + filenames[ftr_ind] + "_img.jpg", img, cmap="gray")
+        plt.imsave("Output" + "/" + filenames[ftr_ind] + "_img.jpg", img, cmap="gray")
 
     print()
 
@@ -68,6 +62,3 @@ def load_data(input_dir):
 
     return image_list
 
-
-X = load_data(TRAINING_DATA)
-compress_images(X, 2000)

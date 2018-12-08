@@ -15,14 +15,14 @@ def compute_Z(X, centering=True, scaling=True):
         means = X.mean(0)
         for i in range(rows):
             for j in range(cols):
-                Z[i, j]= Z[i, j] - means[j]
+                Z[i, j] = Z[i, j] - means[j]
 
     # scaling with std dev
     if scaling:
         std = np.std(Z, axis=0)
         for i in range(cols):
             for j in range(rows):
-                Z[j][i] = Z[j][i] / std[i] # standardize every feature
+                Z[j][i] = Z[j][i] / std[i]  # standardize every feature
 
     return Z
 
@@ -41,11 +41,10 @@ def find_pcs(COV):
 
 
 def project_data(Z, PCS, L, k, var):
-    
     eigen_pairs = [(np.abs(L[i]), PCS[:, i]) for i in range(len(L))]
     eigen_pairs.sort(key=lambda x: x[0], reverse=True)
 
-    #copy of components could be useful
+    # copy of components could be useful
     component_matrix = np.copy(PCS)
     if k != 0:
         # delete unnecessary components
@@ -65,13 +64,3 @@ def project_data(Z, PCS, L, k, var):
     return Z_star
 
 
-# X = np.array([[-1, -1], [-1, 1], [1, -1], [1, 1]])
-# X1 = np.array([[-1, -1], [-1, 1], [1, -1], [1, 1]])
-# X = np.array([[1, 1], [2, 7], [3, 3], [4, 4], [5, 5]])
-# X1 = np.array([[1, 1], [2, 7], [3, 3], [4, 4], [5, 5]])
-# Z = compute_Z(X)
-# COV = compute_covariance_matrix(Z)
-# L, PCS = find_pcs(COV)
-# Z_star = project_data(Z, PCS, L, 0, 0.8)
-#
-# print()
