@@ -6,14 +6,18 @@ TRAINING_DATA = "Data/Train/"
 TEST_DATA = "Data/Test/"
 
 X = c.load_data(TRAINING_DATA)
+c.compress_images(X, 10)
+# c.compress_images(X, 100)
+# c.compress_images(X, 500)
+# c.compress_images(X, 1000)
+# c.compress_images(X, 2000)
+# c.compress_images(X, 50)
 
+# X = c.load_data(TEST_DATA)
 # c.compress_images(X, 10)
 # c.compress_images(X, 100)
 # c.compress_images(X, 500)
 # c.compress_images(X, 1000)
-c.compress_images(X, 2000)
-
-# X = c.load_data(TEST_DATA)
 # c.compress_images(X, 2000)
 
 # X = np.array([[-1, -1], [-1, 1], [1, -1], [1, 1]])
@@ -23,6 +27,5 @@ c.compress_images(X, 2000)
 # L, PCS = p.find_pcs(COV)
 # Z_star = p.project_data(Z, PCS, L, 2, 0)
 # print(Z_star)
-
 
 exit()
