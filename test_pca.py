@@ -6,8 +6,8 @@ TRAINING_DATA = "Data/Train/"
 TEST_DATA = "Data/Test/"
 
 X = c.load_data(TRAINING_DATA)
-c.compress_images(X, 10)
-# c.compress_images(X, 100)
+# c.compress_images(X, 10)
+c.compress_images(X, 100)
 # c.compress_images(X, 500)
 # c.compress_images(X, 1000)
 # c.compress_images(X, 2000)
